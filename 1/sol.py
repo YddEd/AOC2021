@@ -9,6 +9,7 @@ def part_one(input_file):
             i += 1
     return measurements
 
+# first attempt
 def part_two(input_file):
     counter = 0
     with open(input_file, "r") as f:
@@ -21,3 +22,19 @@ def part_two(input_file):
                 counter += 1
             i += 1
     return counter
+
+# optimisation from SasCologne`
+def part_two2(input_file):
+    counter = 0
+    with open(input_file, "r") as f:
+        input = f.readlines()
+        i = 3
+        while i < len(input):
+            if int(input[i]) > int(input[i-3]):
+                counter += 1
+            i += 1
+    return counter
+
+print(part_one("input.txt"))
+print(part_two("input.txt"))
+print(part_two2("input.txt"))
